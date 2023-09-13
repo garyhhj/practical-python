@@ -59,7 +59,8 @@ def make_report(portfolio: list, prices: dict) -> list:
     '''takes in 
         portfolio - list of dict with keys "name", "shares", "price" 
         prices - dict with keys "price"
-        and returns list of tuples(Name, Shares, price, change)'''
+        and returns list of tuples(Name, Shares, price, change)
+    '''
     report = []
     for position in portfolio: 
         report.append((position["name"], position["shares"],
@@ -67,7 +68,16 @@ def make_report(portfolio: list, prices: dict) -> list:
     return report 
 
 def pretty_print(report: list) -> None: 
+    '''
+    prints in a nice looking format 
     
+    example: 
+      ticker     shares      price       gain
+    -------- ---------- ---------- ----------
+         AA        100      $9.22     -22.98
+        IBM         50    $106.28      15.18
+        CAT        150     $35.46     -47.98
+    '''
     #header 
     header = ("ticker", "shares", "price", "gain")
     print(f'{header[0]:>8s} {header[1]:>10s} {header[2]:>10s} {header[3]:>10s}')
